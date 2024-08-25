@@ -1,4 +1,4 @@
-<nav class="bg-gray-700">
+<nav class="bg-gray-900">
   <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
     <div class="relative flex h-16 items-center justify-between">
       <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
@@ -30,9 +30,10 @@
         </div>
         <div class="hidden sm:ml-6 sm:block">
           <div class="flex space-x-4">
-            <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-            <a href="#" class="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white" aria-current="page">Home</a>
-            <a href="#" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">vetement</a>
+          <!--the nav section :  -->
+          <!-- make the links static :  -->
+          <?php echo '<a href="home.php" class="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white underline decoration-2 decoration-sky-600 hover:decoration-blue-400" aria-current="page">Home</a>'; ?>
+            <a href="#" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white ">vetement</a>
             <a href="#" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">accessoire</a>
             <a href="#" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Contactez-nous</a>
           </div>
@@ -43,29 +44,16 @@
 
         <!-- login  section -->
         <div class="relative ml-3">
-          <div>
-              <span class="absolute -inset-1.5"></span>
+          <div> 
               <?php echo '
-              <a href="../site/signup.php" class="p-2 rounded-lg text-zinc-300 border-solid border-2 border-sky-600 mr-3">
-  sign up
-            </a>';
+              <a href="../site/signup.php" class="p-3 rounded-lg text-zinc-300 underline decoration-sky-500 hover:bg-gray-700 mr-3">
+  register</a>';
             echo '
-              <a href="../site/login.php" class="p-2 rounded-lg text-violet-200 border-solid border-2 border-violet-500">
-  login
-            </a>';
+              <a href="../site/login.php" class="p-3 rounded-lg text-violet-200 underline decoration-violet-500 hover:bg-gray-700">
+  login</a>';
             ?>
           </div>
 
-          <!--
-            Dropdown menu, show/hide based on menu state.
-
-            Entering: "transition ease-out duration-100"
-              From: "transform opacity-0 scale-95"
-              To: "transform opacity-100 scale-100"
-            Leaving: "transition ease-in duration-75"
-              From: "transform opacity-100 scale-100"
-              To: "transform opacity-0 scale-95"
-          -->
         </div>
       </div>
     </div>

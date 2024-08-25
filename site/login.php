@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<?php include("../inc/style.php");?>
+<?php include("../inc/comp/style.php");?>
 </head>
 <body>
-<?php include("../inc/header.php")?>
+<?php include("../inc/comp/header.php")?>
 <!-- start form  -->
 
 <div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
