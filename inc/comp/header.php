@@ -33,9 +33,9 @@
           <!--the nav section :  -->
           <!-- make the links static :  -->
           <?php echo '<a href="home.php" class="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white underline decoration-2 decoration-sky-600 hover:decoration-blue-400" aria-current="page">Home</a>'; ?>
-            <a href="#" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white ">vetement</a>
-            <a href="#" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">accessoire</a>
-            <a href="#" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Contactez-nous</a>
+            <a href="shop.php" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white ">shop</a>
+            <a href="about.php" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">about</a>
+            <a href="contact.php" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Contact</a>
           </div>
         </div>
       </div>

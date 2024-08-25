@@ -6,43 +6,60 @@
 </head>
 <body>
     <!--  background image  :  -->
-<div class="relative isolate overflow-hidden bg-gray-900 py-24 sm:py-32">
-  <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&crop=focalpoint&fp-y=.8&w=2830&h=1500&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply" alt="" class="absolute inset-0 -z-10 h-full w-full object-cover object-right md:object-center">
-  <div class="hidden sm:absolute sm:-top-10 sm:right-1/2 sm:-z-10 sm:mr-10 sm:block sm:transform-gpu sm:blur-3xl" aria-hidden="true">
-    <div class="aspect-[1097/845] w-[68.5625rem] bg-gradient-to-tr from-[#ff4694] to-[#776fff] opacity-20" style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"></div>
-  </div>
-  <div class="absolute -top-52 left-1/2 -z-10 -translate-x-1/2 transform-gpu blur-3xl sm:top-[-28rem] sm:ml-16 sm:translate-x-0 sm:transform-gpu" aria-hidden="true">
-    <div class="aspect-[1097/845] w-[68.5625rem] bg-gradient-to-tr from-[#ff4694] to-[#776fff] opacity-20" style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"></div>
-  </div>
-  <div class="mx-auto max-w-7xl px-6 lg:px-8">
-    <div class="mx-auto max-w-2xl lg:mx-0">
-      <h2 class="text-4xl font-bold tracking-tight text-white sm:text-6xl">Work with us</h2>
-      <p class="mt-6 text-lg leading-8 text-gray-300">Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum, error odit? Dolore soluta omnis rem sunt, fugiat repellat amet numquam animi repellendus suscipit temporibus aspernatur voluptates? Tempora et quasi cum!</p>
-    </div>
-    <div class="mx-auto mt-10 max-w-2xl lg:mx-0 lg:max-w-none">
-      <div class="grid grid-cols-1 gap-x-8 gap-y-6 text-base font-semibold leading-7 text-white sm:grid-cols-2 md:flex lg:gap-x-10">
-        <a href="#">lorem ipsum <span aria-hidden="true">&rarr;</span></a>
-        <a href="#">lorem ipsum<span aria-hidden="true">&rarr;</span></a>
-        <a href="#">lorem ipsum <span aria-hidden="true">&rarr;</span></a>
-        <a href="#">lorem ipsum <span aria-hidden="true">&rarr;</span></a>
-      </div>
-      <dl class="mt-16 grid grid-cols-1 gap-8 sm:mt-20 sm:grid-cols-2 lg:grid-cols-4">
-        <div class="flex flex-col-reverse">
-          <dt class="text-base leading-7 text-gray-300">Offices worldwide</dt>
-          <dd class="text-2xl font-bold leading-9 tracking-tight text-white">10</dd>
+    <section class="bg-cover bg-center h-96" style=" background-size:'cover'; background-image: url('https://img.freepik.com/free-photo/supermarket-carts-near-laptop-photo-frame_23-2147961930.jpg?t=st=1724590345~exp=1724593945~hmac=2f0bf26e4d65d34683a3378b5d14d6c7bc0f2df7009b05fed0d2a64d05b29828&w=740');">
+        <div class="flex items-center justify-center h-full bg-black bg-opacity-70 shadow-lg shadow-cyan-800/30">
+            <div class="text-center text-white">
+                <h1 class="text-4xl font-bold">Welcome to E-Shop</h1>
+                <p class="mt-4 text-lg">Discover our exclusive collection now!</p>
+                <?php echo '<a href="shop.php" class="mt-6 inline-block bg-sky-700 text-white py-2 px-4 rounded hover:bg-blue-700">Shop Now</a>'; ?>
+            </div>
         </div>
-        <div class="flex flex-col-reverse">
-          <dt class="text-base leading-7 text-gray-300">product </dt>
-          <dd class="text-2xl font-bold leading-9 tracking-tight text-white">300+</dd>
+    </section>
+    <!-- Product Showcase -->
+    <section class="container mx-auto px-6 py-10">
+        <h2 class="text-2xl font-bold text-gray-800">best seller</h2>
+        <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 ">
+            <!-- Product 1 -->
+            <div class="bg-white shadow-lg rounded-lg overflow-hidden shadow-lg shadow-blue-500/30">
+                <img src="https://img.freepik.com/free-photo/laptop-device-with-minimalist-monochrome-background_23-2150763336.jpg?t=st=1724591272~exp=1724594872~hmac=f33a92065069fa071c1fb73402d3aecb2bf2ad2121035c0b2860c973a716a9d9&w=740" alt="Product Image" class="w-full h-56 object-cover transform transition-transform duration-500 hover:scale-110">
+                <div class="p-4">
+                    <h3 class="text-gray-900 font-semibold text-lg">laptop</h3>
+                    <p class="mt-2 text-gray-600">$499.99</p>
+                    <a href="#" class="mt-4 inline-block bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-700 shadow-lg shadow-sky-500/20 transform transition-transform duration-600 hover:scale-110">Add to Cart</a>
+                </div>
+            </div>
+            <!-- Repeat for other products -->
+            <!-- Product 2 -->
+            <div class="bg-white shadow-lg rounded-lg overflow-hidden shadow-lg shadow-blue-500/40">
+                <img src="https://img.freepik.com/free-photo/levitating-music-headphones-display_23-2149817601.jpg?t=st=1724592203~exp=1724595803~hmac=7e77ee889ac28f45834640f51fe8fc7c567adeef091e0fdb16fc7cb9f0b479ad&w=740" alt="Product Image" class="w-full h-56 object-cover transform transition-transform duration-500 hover:scale-110">
+                <div class="p-4">
+                    <h3 class="text-gray-900 font-semibold text-lg">casque </h3>
+                    <p class="mt-2 text-gray-600">$59.99</p>
+                    <a href="#" class="mt-4 inline-block bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-700 shadow-lg shadow-sky-500/20 transform transition-transform duration-600 hover:scale-110">Add to Cart</a>
+                </div>
+            </div>
+            <!-- Add more products as needed -->
+             <!-- Product 3 -->
+            <div class="bg-white shadow-lg rounded-lg overflow-hidden shadow-lg shadow-blue-500/40">
+                <img src="https://img.freepik.com/free-photo/white-keyboard-plant_23-2148708005.jpg?t=st=1724591712~exp=1724595312~hmac=aade2c799a31dab95f243d44d38e58fbef4439c0267f15c329221d1f49d9977e&w=740" class="w-full h-56 object-cover transform transition-transform duration-500 hover:scale-110">
+                <div class="p-4">
+                    <h3 class="text-gray-900 font-semibold text-lg">clavier</h3>
+                    <p class="mt-2 text-gray-600">$69.99</p>
+                    <a href="#" class="mt-4 inline-block bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-700 shadow-lg shadow-sky-500/20 transform transition-transform duration-600 hover:scale-110">Add to Cart</a>
+                </div>
+            </div>
+            <!-- Add more products as needed -->
+                          <!-- Product 3 -->
+            <div class="bg-white shadow-lg rounded-lg overflow-hidden shadow-lg shadow-blue-500/40">
+                <img src="https://img.freepik.com/free-photo/red-computer-mouse_1260-13.jpg?t=st=1724592073~exp=1724595673~hmac=05433e44bc12edebac93fdcf6d474f8e0058259758ffdf4243b6d0241367e668&w=740" class="w-full h-56 object-cover transform transition-transform duration-500 hover:scale-110">
+                <div class="p-4">
+                    <h3 class="text-gray-900 font-semibold text-lg">computer mouse</h3>
+                    <p class="mt-2 text-gray-600">$29.99</p>
+                    <a href="#" class="mt-4 inline-block bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-700 shadow-lg shadow-sky-500/20 transform transition-transform duration-600 hover:scale-110">Add to Cart</a>
+                </div>
+            </div>
         </div>
-        <div class="flex flex-col-reverse">
-          <dt class="text-base leading-7 text-gray-300">support</dt>
-          <dd class="text-2xl font-bold leading-9 tracking-tight text-white">24/24</dd>
-        </div>
-      </dl>
-    </div>
-  </div>
-</div>
-
+    </section>
+    <?php include("../inc/comp/footer.php");?>
 </body>
 </html>
