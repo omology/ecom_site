@@ -45,7 +45,7 @@
             <!-- Dropdown -->
             <div class="relative inline-block text-left dropdown">
               <button class="text-zinc-200 font-medium rounded-lg text-sm px-3 py-2.5 text-center inline-flex items-center">
-                Shop
+               <?php echo '<a href="shop.php"> Shop </a>' ?>
                 <svg class="w-2.5 h-2.5 ms-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
                   <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
                 </svg>
@@ -55,16 +55,16 @@
               <div class="dropdown-menu absolute right-1 mt-1 w-44 bg-white divide-y divide-gray-100 rounded-lg shadow-lg hidden">
                 <ul class="py-2 text-sm text-gray-700" aria-labelledby="dropdownHoverButton">
                   <li>
-                    <a href="#" class="block px-4 py-2 hover:bg-gray-100">laptop</a>
+                    <a href="#laptop" class="block px-4 py-2 hover:bg-gray-100">laptop</a>
                   </li>
                   <li>
-                    <a href="#" class="block px-4 py-2 hover:bg-gray-100">clavier</a>
+                    <a href="#clavier" class="block px-4 py-2 hover:bg-gray-100">clavier</a>
                   </li>
                   <li>
-                    <a href="#" class="block px-4 py-2 hover:bg-gray-100">mouses</a>
+                    <a href="#mouses" class="block px-4 py-2 hover:bg-gray-100">mouses</a>
                   </li>
                   <li>
-                    <a href="#" class="block px-4 py-2 hover:bg-gray-100">casque</a>
+                    <a href="#casque" class="block px-4 py-2 hover:bg-gray-100">casque</a>
                   </li>
                 </ul>
               </div>
@@ -78,11 +78,11 @@
       </div>
 
       <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-        <!-- Login Section -->
+        <!-- Logout  Section -->
         <div class="relative ml-3">
           <div>
             <form method="post">
-              <button type="submit" class="text-inherit text-zinc-100 bg-sky-700 lowercase hover:bg-sky-500/75 rounded-md p-3 mt-3">Log out</button>
+              <button type="submit" class="text-inherit text-zinc-100 bg-sky-700 lowercase hover:bg-sky-500/75 rounded-md p-3 mt-2">Log out</button>
             </form>
           </div>
         </div>
