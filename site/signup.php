@@ -28,23 +28,27 @@
 
               <div class="md:col-span-5">
                 <label for="email">Email Address</label>
-                <input type="text" name="email" id="email" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="email@domain.com" />
+                <input type="text" name="user_email" id="email" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="email@domain.com" />
               </div>
-
+              <!-- password :  -->
+              <div class="md:col-span-5">
+                <label for="password">password </label>
+                <input type="password" name="user_password" id="passswowrd" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="password" />
+              </div>
               <div class="md:col-span-3">
                 <label for="address">Address / Street</label>
-                <input type="text" name="address" id="address" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
+                <input type="text" name="user_address" id="address" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
               </div>
 
               <div class="md:col-span-2">
                 <label for="city">City</label>
-                <input type="text" name="city" id="city" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
+                <input type="text" name="user_city" id="city" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
               </div>
 
               <div class="md:col-span-2">
                 <label for="country">Country / region</label>
                 <div class="h-10 bg-gray-50 flex border border-gray-200 rounded items-center mt-1">
-                  <input name="country" id="country" placeholder="Country" class="px-4 appearance-none outline-none text-gray-800 w-full bg-transparent" value="" />
+                  <input name="user_country" id="country" placeholder="Country" class="px-4 appearance-none outline-none text-gray-800 w-full bg-transparent" value="" />
                   <button tabindex="-1" class="cursor-pointer outline-none focus:outline-none transition-all text-gray-300 hover:text-red-600">
                     <svg class="w-4 h-4 mx-2 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                       <line x1="18" y1="6" x2="6" y2="18"></line>
@@ -60,7 +64,7 @@
               <div class="md:col-span-2">
                 <label for="state">State / province</label>
                 <div class="h-10 bg-gray-50 flex border border-gray-200 rounded items-center mt-1">
-                  <input name="state" id="state" placeholder="State" class="px-4 appearance-none outline-none text-gray-800 w-full bg-transparent" value="" />
+                  <input name="user_state" id="state" placeholder="State" class="px-4 appearance-none outline-none text-gray-800 w-full bg-transparent" value="" />
                   <button tabindex="-1" class="cursor-pointer outline-none focus:outline-none transition-all text-gray-300 hover:text-red-600">
                     <svg class="w-4 h-4 mx-2 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                       <line x1="18" y1="6" x2="6" y2="18"></line>
@@ -75,7 +79,7 @@
 
               <div class="md:col-span-1">
                 <label for="zipcode">Zipcode</label>
-                <input type="text" name="zipcode" id="zipcode" class="transition-all flex items-center h-10 border mt-1 rounded px-4 w-full bg-gray-50" placeholder="" value="" />
+                <input type="text" name="user_zipCode" id="zipcode" class="transition-all flex items-center h-10 border mt-1 rounded px-4 w-full bg-gray-50" placeholder="" value="" />
               </div>
 
               <div class="md:col-span-5">
@@ -89,8 +93,41 @@
                   <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold px-2 rounded p-1" type="submit" name="sign_up">Sign up</button>
                 </div>
               </div>
-              </form>
+              <?php
+// connect with the db :
+include("../inc/database/conn.php");
 
+//connect fields :
+if(isset($_POST['sign_up'])){
+
+  // get data : 
+  $user_fullname = $_POST['full_name'];
+  $user_email = $_POST['user_email'];
+  $user_password =$_POST['user_password'];
+  $user_adress =$_POST['user_address'];
+  $user_city  =$_POST['user_city'];
+  $user_country = $_POST['user_country'];
+  $user_state =$_POST['user_state'];
+  $user_zipCode  =$_POST['user_zipCode'];
+  // hash the password for security reason : 
+  $hashed_password = password_hash($user_password,PASSWORD_DEFAULT);
+  // the query of  fetch data : 
+  $query = "INSERT INTO user(user_fullname,user_email,user_password,user_adress,user_city,user_country,user_state,user_zipCode)
+            VALUES(
+            '$user_fullname',
+            '$user_email',
+            '$hashed_password',
+            '$user_adress',
+            '$user_city',
+            '$user_country',
+            '$user_state',
+            '$user_zipCode'
+            )";
+  mysqli_query($conn,$query);
+
+}
+?>
+              </form>
             </div>
           </div>
         </div>

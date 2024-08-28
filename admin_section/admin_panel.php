@@ -4,7 +4,7 @@
  <?php include("../inc/comp/style.php");?>
 </head>
 <body class="bg-slate-100">
-<?php include("../inc/comp/shop_nav.php")?>
+<?php include("../inc/comp/admin_nav.php")?>
 
 <div class="container mx-auto p-4">
     <h1 class="text-3xl font-bold mb-4">Admin Panel</h1>
@@ -106,6 +106,7 @@
         </div>
     </section>
 </div>
+<?php include("../inc/comp/footer.php"); ?>
 
 
 </body>

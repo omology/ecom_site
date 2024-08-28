@@ -34,18 +34,18 @@
       </div>
       <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
         <div class="flex flex-shrink-0 items-center">
-          <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500" alt="Your Company">
+          <img class="h-8 w-auto" src="https://img.freepik.com/free-vector/colorful-letter-n-icon-logo-design_474888-3534.jpg?t=st=1724881350~exp=1724884950~hmac=842d7a4265985fd25e01895ee79a91e842ac58c0cad0fa563458f9b20decc503&w=740" alt="Your Company">
         </div>
         <div class="hidden sm:ml-6 sm:block">
           <div class="flex space-x-4">
             <!-- Static Link -->
              <?php echo '
-            <a href="home.php" class="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white underline decoration-2 decoration-sky-600 hover:decoration-blue-400" aria-current="page">Home</a>'; ?>
+            <a href="../site/home.php" class="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white underline decoration-2 decoration-sky-600 hover:decoration-blue-400" aria-current="page">Home</a>'; ?>
             
             <!-- Dropdown -->
             <div class="relative inline-block text-left dropdown">
               <button class="text-zinc-200 font-medium rounded-lg text-sm px-3 py-2.5 text-center inline-flex items-center">
-               <?php echo '<a href="shop.php"> Shop </a>' ?>
+               <?php echo '<a href="../site/shop.php"> Shop </a>' ?>
                 <svg class="w-2.5 h-2.5 ms-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
                   <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
                 </svg>
@@ -71,8 +71,10 @@
             </div>
             
             <!-- Static Links -->
-            <?php echo '<a href="about.php" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">About</a>';?>
-            <?php echo ' <a href="contact.php" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Contact</a>' ; ?>
+            <?php echo '<a href="../site/about.php" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">About</a>';?>
+            <?php echo ' <a href="../site/contact.php" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Contact</a>' ; ?>
+            <?php echo ' <a href="../admin_section/admin_panel.php" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">admin panel</a>' ; ?>
+
           </div>
         </div>
       </div>
@@ -93,14 +95,10 @@
   <!-- Mobile menu -->
   <div class="sm:hidden" id="mobile-menu">
     <div class="space-y-1 px-2 pb-3 pt-2">
-    <?php
-      //  static link 
-       echo '
-      <a href="home.php" class="block rounded-md bg-gray-900 px-3 py-2 text-base font-medium text-white" aria-current="page">Home</a>' ?>
-      <?php echo '<a href="shop.php" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">shop</a>'?>
-     <?php echo ' <a href="about.php" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">about</a>'?>
-      <?php echo '<a href="contact.php" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Contact</a>';
-      ?>
+      <a href="home.php" class="block rounded-md bg-gray-900 px-3 py-2 text-base font-medium text-white" aria-current="page">Home</a>
+      <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Vetement</a>
+      <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Accessoire</a>
+      <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Contacter-nous</a>
     </div>
   </div>
 </nav>
