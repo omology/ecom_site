@@ -35,7 +35,7 @@
                 <img src="https://img.freepik.com/free-photo/levitating-music-headphones-display_23-2149817601.jpg?t=st=1724592203~exp=1724595803~hmac=7e77ee889ac28f45834640f51fe8fc7c567adeef091e0fdb16fc7cb9f0b479ad&w=740" alt="Product Image" class="w-full h-56 object-cover transform transition-transform duration-500 hover:scale-110">
                 <div class="p-4">
                     <h3 class="text-gray-900 font-semibold text-lg">casque </h3>
-                    <?php include("../inc/comp/cart_shop.php"); ?>
+                    <p class="mt-2 text-gray-600">$59.99</p>
                     <a href="#" class="mt-4 inline-block bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-700 shadow-lg shadow-sky-500/20 transform transition-transform duration-600 hover:scale-110">Add to Cart</a>
                 </div>
             </div>
@@ -45,7 +45,6 @@
                 <img src="https://img.freepik.com/free-photo/white-keyboard-plant_23-2148708005.jpg?t=st=1724591712~exp=1724595312~hmac=aade2c799a31dab95f243d44d38e58fbef4439c0267f15c329221d1f49d9977e&w=740" class="w-full h-56 object-cover transform transition-transform duration-500 hover:scale-110">
                 <div class="p-4">
                     <h3 class="text-gray-900 font-semibold text-lg">clavier</h3>
-                    <p class="mt-1 text-gray-700"> description</p>
                     <p class="mt-2 text-gray-600">$69.99</p>
                     <a href="#" class="mt-4 inline-block bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-700 shadow-lg shadow-sky-500/20 transform transition-transform duration-600 hover:scale-110">Add to Cart</a>
                 </div>
