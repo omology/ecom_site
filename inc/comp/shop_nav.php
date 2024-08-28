@@ -14,7 +14,7 @@
   </style>
 </head>
 <body>
-<nav class="bg-gray-900">
+<nav class="bg-gray-900 ">
   <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
     <div class="relative flex h-16 items-center justify-between">
       <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
@@ -52,8 +52,8 @@
               </button>
 
               <!-- Dropdown menu -->
-              <div class="dropdown-menu absolute right-1 mt-1 w-44 bg-white divide-y divide-gray-100 rounded-lg shadow-lg hidden">
-                <ul class="py-2 text-sm text-gray-700" aria-labelledby="dropdownHoverButton">
+              <div class="dropdown-menu absolute right-1 mt-0.1 w-44 bg-white divide-y divide-gray-100 rounded-lg shadow-lg hidden">
+                <ul class="py-3 text-sm text-gray-600" aria-labelledby="dropdownHoverButton">
                   <li>
                     <a href="#laptop" class="block px-4 py-2 hover:bg-gray-100">laptop</a>
                   </li>
@@ -71,8 +71,8 @@
             </div>
             
             <!-- Static Links -->
-            <a href="about.php" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">About</a>
-            <a href="contact.php" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Contact</a>
+            <?php echo '<a href="about.php" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">About</a>';?>
+            <?php echo ' <a href="contact.php" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Contact</a>' ; ?>
           </div>
         </div>
       </div>
@@ -82,7 +82,7 @@
         <div class="relative ml-3">
           <div>
             <form method="post">
-              <button type="submit" class="text-inherit text-zinc-100 bg-sky-700 lowercase hover:bg-sky-500/75 rounded-md p-3 mt-2">Log out</button>
+              <button type="submit" class="text-inherit text-zinc-100 bg-sky-700 lowercase hover:bg-sky-500/75 rounded-md p-3 mt-auto">Log out</button>
             </form>
           </div>
         </div>
