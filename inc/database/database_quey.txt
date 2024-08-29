@@ -1,0 +1,28 @@
+-- copy and past in your php my admin console : --
+--  CREAT THE DATABASE : --
+CREATE DATABASE ecom_db
+-- CREATE USER TABLE : -- 
+CREATE TABLE user(
+    user_id INT PRIMARY KEY AUTO_INCREMENT,
+    user_fullname VARCHAR(255) UNIQUE ,
+    user_email varchar(255) UNIQUE, 
+    user_password varchar(255), 
+    user_adress varchar(255),
+    user_city varchar(255),
+    user_state varchar(255), 
+    user_country varchar(255),
+    user_zipCode int ,
+    role ENUM ( 'user', 'admin') DEFAULT('user') 
+    );
+-- CREATE products TABLE   -- 
+CREATE TABLE product (
+    product_id INT PRIMARY KEY AUTO_INCREMENT,
+    product_name VARCHAR(255) UNIQUE NOT NULL,
+    product_photo_name VARCHAR(255) NOT NULL,
+    product_type  ENUM ( 'laptop', 'keyboard','mouse','casque') DEFAULT 'laptop',
+    product_price decimal(5 , 2) NOT NULL,
+    product_review int(1) NOT NULL,
+    user_id INT NOT NULL,
+    foreign key product(user_id) REFERENCES user(user_id)
+);
+

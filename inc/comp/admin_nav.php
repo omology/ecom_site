@@ -1,4 +1,15 @@
-<?php include("style.php")?>
+<?php include("style.php");
+  if(isset($_POST['logout'])){
+  // Unset all session variables
+  $_SESSION = array();
+  // Destroy the session
+  session_destroy();
+  // Redirect to login page or home page
+  header("Location:login.php");
+  exit(); // Always use exit after a header redirect
+  
+   }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -73,7 +84,7 @@
             <!-- Static Links -->
             <?php echo '<a href="../site/about.php" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">About</a>';?>
             <?php echo ' <a href="../site/contact.php" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Contact</a>' ; ?>
-            <?php echo ' <a href="../admin_section/admin_panel.php" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">admin panel</a>' ; ?>
+            <?php echo ' <a href="../site/admin_panel.php" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">admin panel</a>' ; ?>
 
           </div>
         </div>
@@ -84,7 +95,7 @@
         <div class="relative ml-3">
           <div>
             <form method="post">
-              <button type="submit" class="text-inherit text-zinc-100 bg-sky-700 lowercase hover:bg-sky-500/75 rounded-md p-3 mt-auto">Log out</button>
+              <button type="submit" name="logout" class="text-inherit text-zinc-100 bg-sky-700 lowercase hover:bg-sky-500/75 rounded-md p-3 mt-auto">Log out</button>
             </form>
           </div>
         </div>
@@ -95,10 +106,11 @@
   <!-- Mobile menu -->
   <div class="sm:hidden" id="mobile-menu">
     <div class="space-y-1 px-2 pb-3 pt-2">
-      <a href="home.php" class="block rounded-md bg-gray-900 px-3 py-2 text-base font-medium text-white" aria-current="page">Home</a>
-      <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Vetement</a>
-      <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Accessoire</a>
-      <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Contacter-nous</a>
+      <?php echo '<a href="home.php" class="block rounded-md bg-gray-900 px-3 py-2 text-base font-medium text-white" aria-current="page">Home</a>';?>
+      <?php echo '<a href="../site/shop.php" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Shop</a>';?>
+      <?php echo '<a href="../site/about.php" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">About</a>';?>
+      <?php echo '<a href="../site/contact.php" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Contact</a>';?>
+      <?php echo '<a href="../site/admin_panel.php" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Admin panel</a>';?>
     </div>
   </div>
 </nav>

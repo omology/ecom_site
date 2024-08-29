@@ -1,16 +1,14 @@
  ## start the front-end devlopping :
- - sign up 
- - login 
- - pages : (home , shop , about, contact )
- - responsive design 
- - 
- -
-
+ - sign up  x
+ - login  x
+ - pages : (home , shop , about, contact ) x
+ - responsive design  x
+ 
  ## start the backend devlopping : 
- - data base structure 
- - sign up form
- - login form 
- - access between pages 
+ - data base structure  x
+ - sign up form x
+ - login form  x
+ - access between pages  x
  - acces as admin 
  - import product
  - remove product

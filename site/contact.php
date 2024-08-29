@@ -19,7 +19,7 @@ if (!isset($_SESSION['user_email'])) {
 </head>
 <body>
     <!--  include the nav  : -->
-    <?php  include("../inc/comp/shop_nav.php")?>
+    <?php include("../inc/comp/nav_check.php")?>
     <!-- the cotact us form  -->
     <section class="bg-white py-16">
   <div class="container mx-auto px-4">

@@ -1,7 +1,4 @@
 <?php
-// protect from non loged users  :
-
-// Start the session
 session_start();
 // Check if the user is logged in
 if (!isset($_SESSION['user_email'])) {
@@ -16,7 +13,7 @@ if (!isset($_SESSION['user_email'])) {
 <?php include("../inc/comp/style.php"); ?>
 </head>
 <body class="bg-slate-100">
-<?php include("../inc/comp/shop_nav.php");?>
+<?php include("../inc/comp/nav_check.php")?>
         <!--  background image  :  -->
         <section class="bg-cover bg-no-repeat bg-center h-96" style=" background-size:'cover'; background-image: url('https://img.freepik.com/free-photo/laptop-digital-tablet-with-white-blank-screen-display-office-desk_23-2148052719.jpg?t=st=1724842493~exp=1724846093~hmac=a6a25b235f9a20d4c14ed57ca79da3bd725d7c3ce5da4ff705fbc40763bee949&w=740');">
         <div class="flex items-center justify-center h-full bg-black bg-opacity-70 shadow-lg shadow-cyan-800/30">

@@ -1,10 +1,48 @@
+<?php
+
+session_start();
+
+// Check if the user is logged in
+if (!isset($_SESSION['user_email'])) {
+    // If the user is not logged in, redirect to the login page
+    header("Location:../site/login.php");
+    exit();
+}
+// Database connection
+ include("../inc/database/conn.php");
+// Get the logged-in user's email from the session
+$user_email = $_SESSION['user_email'];
+// Fetch the user's role from the database
+$query = "SELECT role FROM user WHERE user_email = '$user_email' LIMIT 1";
+$result = mysqli_query($conn, $query);
+
+if ($result && mysqli_num_rows($result) > 0) {
+    // Get the role from the database
+    $user = mysqli_fetch_assoc($result);
+
+    // Check if the user is not an admin
+    if ($user['role'] !== 'admin') {
+        // If the user is not an admin, redirect them to the homepage or another page
+        header("Location: home.php");
+        exit();
+    }
+} else {
+    // If the query failed or the user was not found, handle it (e.g., log out the user)
+    echo "<script>alert('User not found or query failed.');</script>";
+    header("Location: home.php");
+    exit();
+}
+
+// If the user is an admin, continue to the admin panel
+?> 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
  <?php include("../inc/comp/style.php");?>
 </head>
 <body class="bg-slate-100">
-<?php include("../inc/comp/admin_nav.php")?>
+<?php include("../inc/comp/nav_check.php")?>
 
 <div class="container mx-auto p-4">
     <h1 class="text-3xl font-bold mb-4">Admin Panel</h1>
@@ -12,10 +50,10 @@
     <!-- Add Product Section -->
     <section class="mb-8">
         <h2 class="text-2xl font-semibold mb-2">Add Product</h2>
-        <form class="bg-white p-4 rounded-lg shadow-md">
+        <form class="bg-white p-5 rounded-lg shadow-lg" method="POST">
             <div class="mb-4">
                 <label for="productName" class="block text-gray-700 mb-3">Product Name</label>
-                <input type="text" id="productName" class="w-full p-2 border rounded-lg" placeholder="Enter product name">
+                <input type="text" name="product_name" id="productName" class="w-full p-2 border rounded-lg" placeholder="Enter product name" required>
             </div>
         <div class="mb-4">
             <!-- the type form  : -->
@@ -31,11 +69,12 @@
                 </form>
             <div class="mb-4">
                 <label for="productDescription" class="block text-gray-700 mb-2">Product Description</label>
-                <textarea id="productDescription" class="w-full p-2 border rounded-lg" placeholder="Enter product description"></textarea>
+                <textarea id="productDescription" class="w-full p-2 border rounded-lg" placeholder="Enter product description" required></textarea>
             </div>
             <div class="mb-4">
+                <!-- price input :  -->
                 <label for="productPrice" class="block text-gray-700">Product Price</label>
-                <input type="number" id="productPrice" class="w-full p-2 border rounded-lg" placeholder="Enter product price">
+                <input type="number" id="productPrice" class="w-full p-2 border rounded-lg" placeholder="Enter product price" required>
             </div>
             <div class="mb-4">
                 <!-- photo place :  -->
@@ -49,7 +88,7 @@
             <p class="mb-2 text-sm text-gray-500 dark:text-gray-600"><span class="font-semibold">Click to upload</span> or drag and drop</p>
             <p class="text-xs text-gray-500 dark:text-gray-600">SVG, PNG, JPG or GIF (MAX. 800x400px)</p>
         </div>
-        <input id="dropzone-file" type="file" class="hidden" />
+        <input id="dropzone-file" type="file" class="hidden" required/>
     </label>
 </div> 
 

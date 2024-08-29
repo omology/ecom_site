@@ -18,7 +18,7 @@ if (!isset($_SESSION['user_email'])) {
  <?php include("../inc/comp/style.php");?>
 </head>
 <body>
-    <?php include("../inc/comp/shop_nav.php");?>
+    <?php include("../inc/comp/nav_check.php")?>
     <section class="bg-gray-100 py-16">
   <div class="container mx-auto px-4">
     <div class="text-center mb-12">
