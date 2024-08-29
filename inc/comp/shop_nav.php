@@ -1,4 +1,15 @@
-<?php include("style.php")?>
+<?php include("style.php");
+ if(isset($_POST['logout'])){
+// Unset all session variables
+$_SESSION = array();
+// Destroy the session
+session_destroy();
+// Redirect to login page or home page
+header("Location: login.php");
+exit(); // Always use exit after a header redirect
+
+ }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -82,7 +93,7 @@
         <div class="relative ml-3">
           <div>
             <form method="post">
-              <button type="submit" class="text-inherit text-zinc-100 bg-sky-700 lowercase hover:bg-sky-500/75 rounded-md p-3 mt-auto">Log out</button>
+              <button type="submit"name="logout" class="text-inherit text-zinc-100 bg-sky-700 lowercase hover:bg-sky-500/75 rounded-md p-3 mt-auto">Log out</button>
             </form>
           </div>
         </div>

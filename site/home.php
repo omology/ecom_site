@@ -1,8 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <?php include("../inc/comp/style.php"); ?>
-    <?php include("../inc/comp/header.php"); ?>
+    <?php include("../inc/comp/style.php");
+    session_start();
+    if(!isset($_SESSION['user_email'])){
+        // include nav if non loged
+         include("../inc/comp/non_log_nav.php");
+    }else {
+        // include nav if loged
+        include("../inc/comp/shop_nav.php");
+    }
+    ?>
 </head>
 <body class="bg-slate-200">
     <!--  background image  :  -->

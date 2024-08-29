@@ -1,3 +1,15 @@
+<?php
+// protect from non loged users  :
+
+// Start the session
+session_start();
+// Check if the user is logged in
+if (!isset($_SESSION['user_email'])) {
+    // If the session variable for the user is not set, redirect to the login page
+    header("Location: login.php");
+    exit(); // Always use exit after a header redirect
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

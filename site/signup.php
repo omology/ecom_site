@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <?php include("../inc/comp/style.php"); ?>
-<?php include("../inc/comp/header.php"); ?>
+<?php include("../inc/comp/non_log_nav.php"); ?>
 </head>
 <body>
 
