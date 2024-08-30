@@ -1,20 +1,15 @@
 <?php
-
 session_start();
-
 // Check if the user is logged in
 if (!isset($_SESSION['user_email'])) {
 
     header("Location:../site/login.php");
     exit();
 }
-
 // Database connection
 include("../inc/database/conn.php");
-
 // Get the logged-in user's email from the session
 $user_email = $_SESSION['user_email'];
-
 // Fetch the user's role from the database
 $query = "SELECT role FROM user WHERE user_email = '$user_email' LIMIT 1";
 $result = mysqli_query($conn, $query);
@@ -104,12 +99,9 @@ if ($result && mysqli_num_rows($result) > 0) {
             </div>
 
             <button type="submit" name="add_product" class="bg-blue-500 text-white py-2 px-4 rounded-lg">Add Product</button>
-        </form>
-    </section>
+            <?php
 
-    <?php
-
-    if (isset($_POST['add_product'])) {
+    if (isset($_POST['add_product']) && !empty($_POST['product_type'])) {
         //  getting data fro form : 
             $product_name = $_POST['product_name'];
             $product_type = $_POST['product_type'];
@@ -150,11 +142,16 @@ if ($result && mysqli_num_rows($result) > 0) {
 
                 // insert data here : 
                 if (mysqli_query($conn, $add_product_query)) {
-                    echo "Product added successfully!";
+                    echo '<p class="mt-3 text-blue-500 font-semibold">Product added successfully!</p>';
                     mysqli_close($conn);
                         
                 } else {
-                    echo "Error: " . mysqli_error($conn);
+                    echo "error " . mysqli_error($conn);
+                    unset($_POST['product_name']);
+                    unset($_POST['product_type']);
+                    unset($_POST['product_price']);
+                    unset($_POST['product_desc']);
+                    unset($_POST['product_img']);
                 }
             } else {
                 echo "Sorry, there was an error uploading your file.";
@@ -163,42 +160,62 @@ if ($result && mysqli_num_rows($result) > 0) {
             echo "File is not an image.";
         }
         // Clear form values
-        unset($_POST['product_name']);
-        unset($_POST['product_type']);
-        unset($_POST['product_price']);
-        unset($_POST['product_desc']);
-        unset($_POST['product_img']);
     }
-
-                //  code work here :
-        //  link the db and start put the product in the site :
-        // error here  => 
     ?>
-    <section class="mb-8">
-        <h2 class="text-2xl font-semibold mb-2">Remove Product</h2>
-        <div class="bg-white p-4 rounded-lg shadow-md">
-            <label for="removeProduct" class="block text-gray-700">Select Product to Remove</label>
-            <select id="removeProduct" class="w-full p-2 border rounded-lg mb-4">
-                <option>Product 1</option>
-                <option>Product 2</option>
-                <option>Product 3</option>
-            </select>
-            <button class="bg-red-500 text-white py-2 px-4 rounded-lg">Remove Product</button>
-        </div>
+        </form>
     </section>
 
-    <!-- Remove Users Section -->
     <section class="mb-8">
-        <h2 class="text-2xl font-semibold mb-2">Remove Users</h2>
+        <form method="POST">
+        <h2 class="text-2xl font-semibold mb-2">Remove Product</h2>
         <div class="bg-white p-4 rounded-lg shadow-md">
-            <label for="removeUser" class="block text-gray-700">Select User to Remove</label>
-            <select id="removeUser" class="w-full p-2 border rounded-lg mb-4">
-                <option>User 1</option>
-                <option>User 2</option>
-                <option>User 3</option>
+            <label for="removeProduct" class="block text-gray-700 font-semibold mb-2">Select Product</label>
+            <select id="removeProduct" class="w-full p-2 border rounded-lg mb-4" name="product_name">
+            <option disabled selected required>--select a product to remove -- </option>
+            <!-- fetch product from db  :  -->
+                <?php 
+                $query = "SELECT * FROM product";
+                include("../inc/database/conn.php");
+                $result = mysqli_query($conn, $query);
+                if (mysqli_num_rows($result) > 0) {
+                    while($row = mysqli_fetch_assoc($result)) {
+                        echo '<option class="text-gray-800 py-2 px-4 rounded-lg" value="'.$row['product_name'].'">'.$row['product_name'] ." type : ".$row['product_type']."desc : ".$row['product_desc'] .'</option>';
+                    }
+                }
+                ?>
             </select>
-            <button class="bg-red-500 text-white py-2 px-4 rounded-lg">Remove User</button>
-        </div>
+            <button class="bg-red-500 text-white py-2 px-4 rounded-lg" type="submit" name="remove_product">Remove Product</button>
+            <?php 
+                if(isset($_POST['remove_product']) ){
+                    // if admin does not select product :  
+                    if (!empty($_POST['product_name'])){
+
+                        $product_name = $_POST['product_name'];
+                        $imgpath_query = mysqli_query($conn, "SELECT product_img FROM product WHERE product_name = '$product_name'");
+                        if ($imgpath_query) {
+                            // Fetch the result as an associative array
+                            $row = mysqli_fetch_assoc($imgpath_query);
+                            if ($row) {
+                                // Get the product image path as a string
+                                $imgpath = $row['product_img'];
+                        }
+                    }
+                        $query  ="DELETE FROM product where product_name = '$product_name'";
+                        $result = mysqli_query($conn,$query);        
+                        if(unlink($imgpath)) {
+                                echo '<p class="mt-3 text-red-600 font-semibold"> product remove successfully !</p>';
+                            }
+                        }
+
+                           
+                        else {
+                            echo '<p class="mt-3 text-red-600 font-semibold"> error !</p>';
+                        }
+                    }
+                    unset($_POST['remove_product']);
+            ?>
+            </div>
+        </form>
     </section>
 </div>
 <?php include("../inc/comp/footer.php"); ?>
