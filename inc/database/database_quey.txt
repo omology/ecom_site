@@ -23,6 +23,20 @@ CREATE TABLE product (
     product_price decimal(5 , 2) NOT NULL,
     product_review int(1) NOT NULL,
     user_id INT NOT NULL,
+    -- use this colomun to get photo from img repo --
+    product_img_name VARCHAR(255) NOT NULL UNIQUE,
     foreign key product(user_id) REFERENCES user(user_id)
 );
+-- the order table : --
+CREATE TABLE orders (
+    order_id INT AUTO_INCREMENT PRIMARY KEY,  -- Unique identifier for each order
+    user_id INT NOT NULL,                     -- Foreign key to identify the user who placed the order
+    order_status VARCHAR(50) DEFAULT 'pending',  -- Status of the order (e.g., pending, shipped, delivered)
+    total_amount DECIMAL(10, 2) NOT NULL,     -- Total amount of the order
+    payment_status VARCHAR(50) DEFAULT 'unpaid',  -- Status of the payment (e.g., unpaid, paid)
+    -- Foreign Key Constraint
+    CONSTRAINT fk_user
+        FOREIGN KEY (user_id) REFERENCES user(user_id)
+);
+
 

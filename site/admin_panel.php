@@ -4,14 +4,17 @@ session_start();
 
 // Check if the user is logged in
 if (!isset($_SESSION['user_email'])) {
-    // If the user is not logged in, redirect to the login page
+
     header("Location:../site/login.php");
     exit();
 }
+
 // Database connection
- include("../inc/database/conn.php");
+include("../inc/database/conn.php");
+
 // Get the logged-in user's email from the session
 $user_email = $_SESSION['user_email'];
+
 // Fetch the user's role from the database
 $query = "SELECT role FROM user WHERE user_email = '$user_email' LIMIT 1";
 $result = mysqli_query($conn, $query);
@@ -39,85 +42,106 @@ if ($result && mysqli_num_rows($result) > 0) {
 <!DOCTYPE html>
 <html lang="en">
 <head>
- <?php include("../inc/comp/style.php");?>
+ <?php include("../inc/comp/style.php"); ?>
 </head>
 <body class="bg-slate-100">
-<?php include("../inc/comp/nav_check.php")?>
+<?php include("../inc/comp/nav_check.php"); ?>
 
 <div class="container mx-auto p-4">
-    <h1 class="text-3xl font-bold mb-4">Admin Panel</h1>
+    <!-- the section name  :  -->
+    <h1 class="text-3xl text-center font-bold mb-4 mt-5">Admin Panel</h1>
 
     <!-- Add Product Section -->
     <section class="mb-8">
         <h2 class="text-2xl font-semibold mb-2">Add Product</h2>
-        <form class="bg-white p-5 rounded-lg shadow-lg" method="POST">
+        <form class="bg-white p-5 rounded-lg shadow-lg" method="POST" enctype="multipart/form-data">
             <div class="mb-4">
                 <label for="productName" class="block text-gray-700 mb-3">Product Name</label>
+                <!-- product name :  -->
                 <input type="text" name="product_name" id="productName" class="w-full p-2 border rounded-lg" placeholder="Enter product name" required>
             </div>
-        <div class="mb-4">
-            <!-- the type form  : -->
-                <form class="max-w-sm mx-auto">
-                <label for="product_type" class="block text-gray-600 mb-3">Select product type</label>
-                <select id="product_type" class="w-full p-2 border rounded-lg mb-4">
-                    <option selected class="text-gray-300">select an option</option>
-                    <option value="laptop">laptop</option>
-                    <option value="keyboard">keyboard</option>
-                    <option value="mouse">mouse</option>
-                    <option value="casque">casque</option>
+            
+            <div class="mb-4">
+                <label for="product_type" class="block text-gray-700 mb-3">Choose a product type:</label>
+                <!-- product type :  -->
+                <select name="product_type" id="product_type" class="w-full p-2 border rounded-lg" required>
+                    <option value="" disabled selected>--Select a Product Type--</option>
+                    <option value="laptop">Laptop</option>
+                    <option value="keyboard">Keyboard</option>
+                    <option value="mouse">Mouse</option>
+                    <option value="casque">Casque</option>
                 </select>
-                </form>
-            <div class="mb-4">
-                <label for="productDescription" class="block text-gray-700 mb-2">Product Description</label>
-                <textarea id="productDescription" class="w-full p-2 border rounded-lg" placeholder="Enter product description" required></textarea>
             </div>
-            <div class="mb-4">
-                <!-- price input :  -->
-                <label for="productPrice" class="block text-gray-700">Product Price</label>
-                <input type="number" id="productPrice" class="w-full p-2 border rounded-lg" placeholder="Enter product price" required>
-            </div>
-            <div class="mb-4">
-                <!-- photo place :  -->
-            <label for="productPhoto" class="block text-gray-700 mb-2">Product Photo</label>
-            <div class="flex items-center justify-center w-full">
-    <label for="dropzone-file" class="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300  rounded-lg cursor-pointer  dark:hover:bg-gray-200 ">
-        <div class="flex flex-col items-center justify-center pt-5 pb-6">
-            <svg class="w-8 h-8 mb-4 text-gray-800 dark:text-gray-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
-                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2"/>
-            </svg>
-            <p class="mb-2 text-sm text-gray-500 dark:text-gray-600"><span class="font-semibold">Click to upload</span> or drag and drop</p>
-            <p class="text-xs text-gray-500 dark:text-gray-600">SVG, PNG, JPG or GIF (MAX. 800x400px)</p>
-        </div>
-        <input id="dropzone-file" type="file" class="hidden" required/>
-    </label>
-</div> 
 
-            </div>
             <div class="mb-4">
-                <label class="block text-gray-700">Product Review</label>
-                <div class="flex space-x-1">
-                    <svg class="w-6 h-6 text-yellow-400" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M12 17.27l6.18 3.73-1.64-7.03 5.46-4.73-7.19-.62L12 2 9.19 8.62l-7.19.62 5.46 4.73-1.64 7.03L12 17.27z" />
-                    </svg>
-                    <svg class="w-6 h-6 text-yellow-400" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M12 17.27l6.18 3.73-1.64-7.03 5.46-4.73-7.19-.62L12 2 9.19 8.62l-7.19.62 5.46 4.73-1.64 7.03L12 17.27z" />
-                    </svg>
-                    <svg class="w-6 h-6 text-yellow-400" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M12 17.27l6.18 3.73-1.64-7.03 5.46-4.73-7.19-.62L12 2 9.19 8.62l-7.19.62 5.46 4.73-1.64 7.03L12 17.27z" />
-                    </svg>
-                    <svg class="w-6 h-6 text-yellow-400" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M12 17.27l6.18 3.73-1.64-7.03 5.46-4.73-7.19-.62L12 2 9.19 8.62l-7.19.62 5.46 4.73-1.64 7.03L12 17.27z" />
-                    </svg>
-                    <svg class="w-6 h-6 text-yellow-400" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M12 17.27l6.18 3.73-1.64-7.03 5.46-4.73-7.19-.62L12 2 9.19 8.62l-7.19.62 5.46 4.73-1.64 7.03L12 17.27z" />
-                    </svg>
+                <!-- product descrition  : -->
+                <label for="productDescription" class="block 
+                text-gray-700 mb-2">Product Description</label>
+                <textarea id="productDescription" name="product_description" class="w-full p-2 border rounded-lg" placeholder="Enter product description" required></textarea>
+            </div>
+
+            <div class="mb-4">
+                <!-- product price :  -->
+                <label for="productPrice" class="block text-gray-700">Product Price</label>
+                <input type="number" name="product_price" id="productPrice" class="w-full p-2 border rounded-lg" placeholder="Enter product price" required>
+            </div>
+
+            <div class="mb-4">
+                <!-- photo section :  -->
+                <label for="productPhoto" class="block text-gray-700 mb-2">Product Photo</label>
+                <div class="flex items-center justify-center w-full">
+                    <label for="dropzone-file" class="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 rounded-lg cursor-pointer dark:hover:bg-gray-200">
+                        <div class="flex flex-col items-center justify-center pt-5 pb-6">
+                            <svg class="w-8 h-8 mb-4 text-gray-800 dark:text-gray-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2"/>
+                            </svg>
+                            <p class="mb-2 text-sm text-gray-500 dark:text-gray-600"><span class="font-semibold">Click to upload</span> or drag and drop</p>
+                            <p class="text-xs text-gray-500 dark:text-gray-600">SVG, PNG, JPG or GIF (MAX. 800x400px)</p>
+                        </div>
+                        <input id="dropzone-file" name="product_photo" type="file" class="hidden" required/>
+                    </label>
                 </div>
             </div>
-            <button type="submit" class="bg-blue-500 text-white py-2 px-4 rounded-lg">Add Product</button>
+
+            <button type="submit" name="add_product" class="bg-blue-500 text-white py-2 px-4 rounded-lg">Add Product</button>
         </form>
     </section>
 
-    <!-- Remove Product Section -->
+    <?php
+    if (isset($_POST['add_product'])) {
+        //  getting data fro form : 
+        $product_name = $_POST['product_name'];
+        $product_type = $_POST['product_type'];
+        $product_description = $_POST['product_description'];
+        $product_price = $_POST['product_price'];
+        // Assume you handle the photo upload separately
+        $product_photo = $_FILES['product_photo']['name']; 
+        // send img to other directory : 
+            // Handle the photo upload
+        $target_dir = "../prducts_img/"; // Specify the target directory
+        $target_file = $target_dir . basename($_FILES["product_photo"]["name"]);
+        //  check if file is an image : 
+        // Check if the file is an actual image
+    $check = getimagesize($_FILES["product_photo"]["tmp_name"]);
+
+        if ($check !== false) {
+            // Move the file to the target directory
+            if (move_uploaded_file($_FILES["product_photo"]["tmp_name"], $target_file)) {
+                echo " <script> alert('the photo has been uploaded.');</script>";
+            } else {
+                echo " <script> alert('Sorry, there was an error uploading your file);</script>";
+            }
+        } else {
+            echo "<script>alert('File is not an image.');</script>";
+        }
+    }
+    ?>
+    <?php
+        //  link the db and start put the product in the site :
+        $add_product_query = "INSERT INTO product VALUES(); ";
+    
+    ?>
+     
     <section class="mb-8">
         <h2 class="text-2xl font-semibold mb-2">Remove Product</h2>
         <div class="bg-white p-4 rounded-lg shadow-md">

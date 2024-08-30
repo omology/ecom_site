@@ -1,0 +1,33 @@
+
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-2">Remove Product</h2>
+        <div class="bg-white p-4 rounded-lg shadow-md">
+            <label for="removeProduct" class="block text-gray-700">Select Product to Remove</label>
+            <select id="removeProduct" class="w-full p-2 border rounded-lg mb-4">
+                <option>Product 1</option>
+                <option>Product 2</option>
+                <option>Product 3</option>
+            </select>
+            <button class="bg-red-500 text-white py-2 px-4 rounded-lg">Remove Product</button>
+        </div>
+    </section>
+
+    <!-- Remove Users Section -->
+    <section class="mb-8">
+        <h2 class="text-2xl font-semibold mb-2">Remove Users</h2>
+        <div class="bg-white p-4 rounded-lg shadow-md">
+            <label for="removeUser" class="block text-gray-700">Select User to Remove</label>
+            <select id="removeUser" class="w-full p-2 border rounded-lg mb-4">
+                <option>User 1</option>
+                <option>User 2</option>
+                <option>User 3</option>
+            </select>
+            <button class="bg-red-500 text-white py-2 px-4 rounded-lg">Remove User</button>
+        </div>
+    </section>
+</div>
+<?php include("../inc/comp/footer.php"); ?>
+
+
+</body>
+</html>

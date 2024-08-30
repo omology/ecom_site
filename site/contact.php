@@ -17,7 +17,7 @@ if (!isset($_SESSION['user_email'])) {
  <!-- including icons : -->
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 </head>
-<body>
+<body class="bg-slate-200">
     <!--  include the nav  : -->
     <?php include("../inc/comp/nav_check.php")?>
     <!-- the cotact us form  -->

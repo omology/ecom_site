@@ -3,14 +3,14 @@
  - login  x
  - pages : (home , shop , about, contact ) x
  - responsive design  x
- 
+
  ## start the backend devlopping : 
  - data base structure  x
  - sign up form x
  - login form  x
  - access between pages  x
- - acces as admin 
- - import product
+ - acces as admin  x
+ - import product 
  - remove product
  - remove users 
  #
