@@ -1,33 +1,26 @@
-
-    <section class="mb-8">
-        <h2 class="text-2xl font-semibold mb-2">Remove Product</h2>
-        <div class="bg-white p-4 rounded-lg shadow-md">
-            <label for="removeProduct" class="block text-gray-700">Select Product to Remove</label>
-            <select id="removeProduct" class="w-full p-2 border rounded-lg mb-4">
-                <option>Product 1</option>
-                <option>Product 2</option>
-                <option>Product 3</option>
-            </select>
-            <button class="bg-red-500 text-white py-2 px-4 rounded-lg">Remove Product</button>
-        </div>
-    </section>
-
-    <!-- Remove Users Section -->
-    <section class="mb-8">
-        <h2 class="text-2xl font-semibold mb-2">Remove Users</h2>
-        <div class="bg-white p-4 rounded-lg shadow-md">
-            <label for="removeUser" class="block text-gray-700">Select User to Remove</label>
-            <select id="removeUser" class="w-full p-2 border rounded-lg mb-4">
-                <option>User 1</option>
-                <option>User 2</option>
-                <option>User 3</option>
-            </select>
-            <button class="bg-red-500 text-white py-2 px-4 rounded-lg">Remove User</button>
-        </div>
-    </section>
-</div>
-<?php include("../inc/comp/footer.php"); ?>
+             
+             <!--  product section cadre :  -->
+            echo "<div class="bg-white shadow-lg rounded-lg overflow-hidden shadow-lg shadow-blue-500/30 my-6">"
+            echo '<img src="' . $row['product_image'] . '" alt="' . $row['product_name'] . ' class="w-full h-56 object-cover transform transition-transform duration-500 hover:scale-110">';
+            echo  ' <div class="p-4">';
+            echo        '<h3 class="text-gray-900 font-semibold text-lg"> . $row['product_name'] . '</h3>
+            echo        <?php include("../inc/comp/cart_shop.php");?>
+            echo    <a href="#" class="mt-4 inline-block bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-700 shadow-lg shadow-sky-500/20 transform transition-transform duration-600 hover:scale-110">Add to Cart</a>
+                </div>
+            </div>
 
 
-</body>
-</html>
+
+
+
+                 echo "<div class="p-4">";
+                 echo "<!--title place : -->";
+                 echo "   <h3 class="text-gray-900 font-semibold text-lg">".."</h3>";
+                 echo "    <!-- description section :  -->";
+                 echo "    <p class="mb-3 text-gray-500 dark:text-gray-400">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit </p>";
+                 echo "    <!-- ./description section  -->
+                 echo "<!--price place : -->";
+                 echo "    <p class="mt-2 text-gray-600">$59.99</p>
+                 echo "<!--link buying place : -->";
+                 echo "   <a href="#" class="mt-4 inline-block bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-700 shadow-lg shadow-sky-500/20 transform transition-transform duration-600 hover:scale-110">Add to Cart</a>
+                echo "</div>

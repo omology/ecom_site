@@ -18,14 +18,10 @@ CREATE TABLE user(
 CREATE TABLE product (
     product_id INT PRIMARY KEY AUTO_INCREMENT,
     product_name VARCHAR(255) UNIQUE NOT NULL,
-    product_photo_name VARCHAR(255) NOT NULL,
     product_type  ENUM ( 'laptop', 'keyboard','mouse','casque') DEFAULT 'laptop',
     product_price decimal(5 , 2) NOT NULL,
-    product_review int(1) NOT NULL,
-    user_id INT NOT NULL,
-    -- use this colomun to get photo from img repo --
-    product_img_name VARCHAR(255) NOT NULL UNIQUE,
-    foreign key product(user_id) REFERENCES user(user_id)
+    product_desc text,
+    product_img VARCHAR(255) 
 );
 -- the order table : --
 CREATE TABLE orders (

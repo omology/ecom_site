@@ -10,7 +10,7 @@
  - login form  x
  - access between pages  x
  - acces as admin  x
- - import product 
+ - import product x
  - remove product
  - remove users 
  #

@@ -108,40 +108,72 @@ if ($result && mysqli_num_rows($result) > 0) {
     </section>
 
     <?php
+
     if (isset($_POST['add_product'])) {
         //  getting data fro form : 
-        $product_name = $_POST['product_name'];
-        $product_type = $_POST['product_type'];
-        $product_description = $_POST['product_description'];
-        $product_price = $_POST['product_price'];
+            $product_name = $_POST['product_name'];
+            $product_type = $_POST['product_type'];
+            $product_description = $_POST['product_description'];
+            $product_price = $_POST['product_price'];
         // Assume you handle the photo upload separately
-        $product_photo = $_FILES['product_photo']['name']; 
+            $product_photo = $_FILES['product_photo']['name'];
+            $image_ext = pathinfo($product_photo,PATHINFO_EXTENSION);
+            $image_name  = time().'.'.$image_ext;
         // send img to other directory : 
-            // Handle the photo upload
+        // Handle the photo upload
         $target_dir = "../prducts_img/"; // Specify the target directory
-        $target_file = $target_dir . basename($_FILES["product_photo"]["name"]);
+        //  get the name of img  : 
+        $target_file = $target_dir.basename($_FILES["product_photo"]["name"]);
         //  check if file is an image : 
         // Check if the file is an actual image
-    $check = getimagesize($_FILES["product_photo"]["tmp_name"]);
+        $check = getimagesize($_FILES["product_photo"]["tmp_name"]);
 
         if ($check !== false) {
             // Move the file to the target directory
             if (move_uploaded_file($_FILES["product_photo"]["tmp_name"], $target_file)) {
-                echo " <script> alert('the photo has been uploaded.');</script>";
+                // add  the product :
+                //  next step get the img name in other repo "img "
+                // work : 
+                $add_product_query = "INSERT INTO product (
+                    product_name, 
+                    product_type, 
+                    product_price, 
+                    product_desc, 
+                    product_img
+                ) VALUES (
+                    '$product_name', 
+                    '$product_type', 
+                    '$product_price', 
+                    '$product_description', 
+                    '$target_file'
+                );";
+
+                // insert data here : 
+                if (mysqli_query($conn, $add_product_query)) {
+                    echo "Product added successfully!";
+                    mysqli_close($conn);
+                        
+                } else {
+                    echo "Error: " . mysqli_error($conn);
+                }
             } else {
-                echo " <script> alert('Sorry, there was an error uploading your file);</script>";
+                echo "Sorry, there was an error uploading your file.";
             }
         } else {
-            echo "<script>alert('File is not an image.');</script>";
+            echo "File is not an image.";
         }
+        // Clear form values
+        unset($_POST['product_name']);
+        unset($_POST['product_type']);
+        unset($_POST['product_price']);
+        unset($_POST['product_desc']);
+        unset($_POST['product_img']);
     }
-    ?>
-    <?php
+
+                //  code work here :
         //  link the db and start put the product in the site :
-        $add_product_query = "INSERT INTO product VALUES(); ";
-    
+        // error here  => 
     ?>
-     
     <section class="mb-8">
         <h2 class="text-2xl font-semibold mb-2">Remove Product</h2>
         <div class="bg-white p-4 rounded-lg shadow-md">
@@ -170,7 +202,5 @@ if ($result && mysqli_num_rows($result) > 0) {
     </section>
 </div>
 <?php include("../inc/comp/footer.php"); ?>
-
-
 </body>
 </html>
