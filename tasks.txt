@@ -11,6 +11,7 @@
  - access between pages  x
  - acces as admin  x
  - import product x
+ - fetch product
  - remove product
  - remove users 
  #

@@ -67,13 +67,132 @@ if (!isset($_SESSION['user_email'])) {
   <!-- ./laptop section  -->
 
    <!-- keyboard section :  -->
+   <section class="container mx-auto px-6 py-10">
+    <!-- category of products  : -->
+        <h2 class=" font-bold text-gray-800 text-4xl text-center mx-3">keyboard</h2>
+        <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 my-2.5">
+            <!-- Product 1 -->
+    <?php
+        $query = "SELECT 
+                    product_name,
+                    product_type, 
+                    product_price, 
+                    product_desc, 
+                    product_img 
+                    FROM product
+                    where product_type = 'keyboard'";
+        // check result of query  :
+        include("../inc/database/conn.php");
+        $result = mysqli_query($conn, $query);
 
-    <!-- ./clavier section -->
+        // if product exist start fetching : 
+
+            if (mysqli_num_rows($result) > 0) {
+                while($row = mysqli_fetch_assoc($result)) {
+                // Output the product details using your existing HTML structure
+                echo '
+                <div class="bg-white shadow-lg rounded-lg overflow-hidden shadow-lg shadow-blue-500/30 my-6">
+                    <img src="' . $row['product_img'] . '" alt="' . $row['product_name'] . '" class="w-full h-56 object-cover transform transition-transform duration-500 hover:scale-110">
+                    <div class="p-4">
+                        <h3 class="text-gray-900 font-semibold text-lg">' . $row['product_name'] . '</h3>';
+                echo '<p class="mb-3 text-gray-500 dark:text-gray-400">'.$row['product_desc']. '</p>';
+                echo '<p class="mt-2 text-gray-600">$'.$row['product_price'].'</p>';
+                echo '<a href="#" class="mt-4 inline-block bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-700 shadow-lg shadow-sky-500/20 transform transition-transform duration-600 hover:scale-110">Add to Cart</a>
+                    </div>
+                </div>';
+            }
+        } else {
+            echo "No products found.";
+        }
+        mysqli_close($conn);
+        ?> 
+ </section>
+    <!-- ./keyboard section -->
     <!-- mouses section  -->
+    <section class="container mx-auto px-6 py-10">
+    <!-- category of products  : -->
+        <h2 class=" font-bold text-gray-800 text-4xl text-center mx-3">mouse</h2>
+        <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 my-2.5">
+            <!-- Product 1 -->
+    <?php
+        $query = "SELECT 
+                    product_name,
+                    product_type, 
+                    product_price, 
+                    product_desc, 
+                    product_img 
+                    FROM product
+                    where product_type = 'mouse'";
+        // check result of query  :
+        include("../inc/database/conn.php");
+        $result = mysqli_query($conn, $query);
+
+        // if product exist start fetching : 
+
+            if (mysqli_num_rows($result) > 0) {
+                while($row = mysqli_fetch_assoc($result)) {
+                // Output the product details using your existing HTML structure
+                echo '
+                <div class="bg-white shadow-lg rounded-lg overflow-hidden shadow-lg shadow-blue-500/30 my-6">
+                    <img src="' . $row['product_img'] . '" alt="' . $row['product_name'] . '" class="w-full h-56 object-cover transform transition-transform duration-500 hover:scale-110">
+                    <div class="p-4">
+                        <h3 class="text-gray-900 font-semibold text-lg">' . $row['product_name'] . '</h3>';
+                echo '<p class="mb-3 text-gray-500 dark:text-gray-400">'.$row['product_desc']. '</p>';
+                echo '<p class="mt-2 text-gray-600">$'.$row['product_price'].'</p>';
+                echo '<a href="#" class="mt-4 inline-block bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-700 shadow-lg shadow-sky-500/20 transform transition-transform duration-600 hover:scale-110">Add to Cart</a>
+                    </div>
+                </div>';
+            }
+        } else {
+            echo "No products found.";
+        }
+        mysqli_close($conn);
+        ?> 
+ </section>
 
     <!-- ./mouses section -->
     <!-- casques section  :  -->
+    <section class="container mx-auto px-6 py-10">
+    <!-- category of products  : -->
+        <h2 class=" font-bold text-gray-800 text-4xl text-center mx-3">casque</h2>
+        <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 my-2.5">
+            <!-- Product 1 -->
+    <?php
+        $query = "SELECT 
+                    product_name,
+                    product_type, 
+                    product_price, 
+                    product_desc, 
+                    product_img 
+                    FROM product
+                    where product_type = 'casque'";
+        // check result of query  :
+        include("../inc/database/conn.php");
 
+        $result = mysqli_query($conn, $query);
+
+        // if product exist start fetching : 
+
+            if (mysqli_num_rows($result) > 0) {
+                while($row = mysqli_fetch_assoc($result)) {
+                // Output the product details using your existing HTML structure
+                echo '
+                <div class="bg-white shadow-lg rounded-lg overflow-hidden shadow-lg shadow-blue-500/30 my-6">
+                    <img src="' . $row['product_img'] . '" alt="' . $row['product_name'] . '" class="w-full h-56 object-cover transform transition-transform duration-500 hover:scale-110">
+                    <div class="p-4">
+                        <h3 class="text-gray-900 font-semibold text-lg">' . $row['product_name'] . '</h3>';
+                echo '<p class="mb-3 text-gray-500 dark:text-gray-400">'.$row['product_desc']. '</p>';
+                echo '<p class="mt-2 text-gray-600">$'.$row['product_price'].'</p>';
+                echo '<a href="#" class="mt-4 inline-block bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-700 shadow-lg shadow-sky-500/20 transform transition-transform duration-600 hover:scale-110">Add to Cart</a>
+                    </div>
+                </div>';
+            }
+        } else {
+            echo "No products found.";
+        }
+        mysqli_close($conn);
+        ?> 
+ </section>
     <!-- ./casques section  -->
 
 
